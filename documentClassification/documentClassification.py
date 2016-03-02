@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import TfidfTransformer, CountVectorizer
 from time import time
 from sklearn.pipeline import Pipeline
 
-text_clf = Pipeline([('vect', CountVectorizer()),
+text_clf = Pipeline([('vect', CountVectorizer(stop_words='english', min_df=3, max_df=0.92)),
                       ('clf', MultinomialNB())])
 
 regex = re.compile('[^a-zA-Z ]')
